@@ -109,11 +109,11 @@ const Navbar = () => {
                   </NavLink>
                 ))}
                 <motion.a
-                  href="#contact"
+                  href="https://drive.google.com/file/d/13hcHhtso8EOFzLjgGAcX5r8ltj6z27CF/view?usp=sharing"
                   whileTap={{ scale: 0.95 }}
                   className="px-4 py-2 rounded-md bg-purple-600 hover:bg-purple-700 dark:bg-purple-500 dark:hover:bg-purple-600 text-white font-medium text-center transition-colors duration-200"
                 >
-                  Get in Touch
+                  Resume
                 </motion.a>
               </div>
             </motion.div>
