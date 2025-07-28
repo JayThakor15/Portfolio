@@ -145,7 +145,7 @@ const Skills = () => {
           <h2 className="text-4xl font-bold text-text-light dark:text-white mb-4">
             Technical Arsenal
           </h2>
-          <p className="text-lg text-text-light/70 dark:text-text-dark/70">
+          <p className="text-lg text-text-light/70 dark:text-white/70">
             Technologies I work with to bring ideas to life
           </p>
         </motion.div>
