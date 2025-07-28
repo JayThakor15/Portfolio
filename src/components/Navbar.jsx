@@ -166,7 +166,7 @@ const Navbar = () => {
     { href: "#home", label: "Home", icon: HomeIcon },
     { href: "#contact", label: "About", icon: UserIcon },
     { href: "#projects", label: "Projects", icon: FolderIcon },
-    { href: "#experince", label: "Contact", icon: WorkExperienceIcon },
+    { href: "#experince", label: "Experience", icon: WorkExperienceIcon },
   ];
 
   useEffect(() => {
@@ -221,7 +221,7 @@ const Navbar = () => {
             <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-text-light dark:text-text-dark"
+              className="text-text-light dark:text-white"
             >
               {isOpen ? (
                 <XMarkIcon className="h-6 w-6" />
