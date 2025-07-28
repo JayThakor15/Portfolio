@@ -8,3 +8,16 @@
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  background-color: #ffffff;
+  background-image: linear-gradient(to bottom right, #ffffff, #f0f0f0);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000000;
+    background-image: linear-gradient(to bottom right, #000000, #0a0d37);
+    border-color: #1b2c68a0;
+  }
+}

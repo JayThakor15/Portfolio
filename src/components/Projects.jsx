@@ -1,118 +1,140 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from "framer-motion";
+import { useState, useRef, useEffect } from "react";
 
-const ProjectCard = ({ project, isEven }) => {
-  const cardRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: cardRef,
-    offset: ["start end", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-
+const ProjectCard = ({ project }) => {
   return (
-    <div ref={cardRef} className="relative grid grid-cols-12 gap-4 items-center my-24">
-      {/* Timeline dot and line */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 h-full">
-        <div className="h-full w-[2px] bg-purple-500/20">
-          <motion.div
-            className="sticky top-1/2 w-4 h-4 rounded-full bg-purple-500 transform -translate-x-[7px]"
-            style={{ y }}
-          />
+    <motion.div
+      className="relative w-72 h-96 flex-shrink-0 rounded-lg overflow-hidden shadow-xl group"
+      whileHover={{
+        y: -8,
+        transition: {
+          type: "spring",
+          stiffness: 300,
+        },
+      }}
+    >
+      <img
+        src={project.image}
+        alt={project.title}
+        className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 pointer-events-none"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+      <div className="relative z-10 flex flex-col justify-end h-full p-6 text-white">
+        <h3 className="font-bold text-2xl tracking-wide mb-2">
+          {project.title}
+        </h3>
+        <p className="text-sm text-gray-300 mb-4 line-clamp-3">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {project.technologies.slice(0, 3).map((tech, index) => (
+            <span
+              key={index}
+              className="px-2 py-1 text-xs bg-purple-500/20 text-purple-300 rounded-full"
+            >
+              {tech}
+            </span>
+          ))}
         </div>
-      </div>
-
-      {/* Content containers */}
-      <motion.div
-        initial={{ opacity: 0, x: isEven ? -50 : 50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className={`col-span-12 md:col-span-5 ${isEven ? 'md:col-start-1' : 'md:col-start-7'}`}
-      >
-        <div className="bg-white/5 backdrop-blur-sm p-6 rounded-xl">
-          <h3 className="text-xl font-bold text-purple-500 mb-2">{project.title}</h3>
-          <p className="text-gray-300 mb-4">{project.description}</p>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {project.technologies.map((tech, index) => (
-              <span
-                key={index}
-                className="px-3 py-1 text-sm bg-purple-500/10 text-purple-400 rounded-full"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-          <div className="flex gap-4">
+        <div className="flex gap-4">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-purple-400 hover:text-purple-300"
+          >
+            Code →
+          </a>
+          {project.demo && (
             <a
-              href={project.github}
+              href={project.demo}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-purple-400 hover:text-purple-300"
             >
-              View Code →
+              Demo →
             </a>
-            {project.demo && (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-purple-400 hover:text-purple-300"
-              >
-                Live Demo →
-              </a>
-            )}
-          </div>
+          )}
         </div>
-      </motion.div>
-
-      {/* Laptop with project image */}
-      <motion.div
-        initial={{ opacity: 0, x: isEven ? 50 : -50 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className={`col-span-12 md:col-span-5 ${isEven ? 'md:col-start-7' : 'md:col-start-1'}`}
-      >
-        <div className="relative laptop-mockup">
-          <div className="relative w-full aspect-[16/10] bg-gray-800 rounded-lg overflow-hidden">
-            <img
-              src={project.image}
-              alt={project.title}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* Laptop frame */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-          </div>
-          {/* Laptop stand */}
-          <div className="h-4 bg-gray-700 mx-auto w-1/4 rounded-b-lg" />
-          <div className="h-1 bg-gray-600 mx-auto w-1/3" />
-        </div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   );
 };
 
 const Projects = () => {
+  const trackRef = useRef(null);
+  const containerRef = useRef(null);
+  const [dragConstraint, setDragConstraint] = useState(0);
+
   const projects = [
     {
-       title: "AI Chat Bot",
-      description: "An AI-powered chatbot built using React, GenAI (Gemini API), and Tailwind CSS. It provides intelligent and interactive responses, making it ideal for customer support and personal assistance.",
+      title: "AI Chat Bot",
+      description:
+        "An AI-powered chatbot built using React, GenAI (Gemini API), and Tailwind CSS.",
       technologies: ["React", "GenAI", "Gemini API", "Tailwind CSS"],
-      image: "/Ai-ChatBot.png", // Replace with the correct path to the provided image
-      github: "https://github.com/yourusername/ai-chatbot", // Update with your GitHub link
-      demo: "https://demo-url.com" // Update with your live demo link
+      image: "/Ai-ChatBot.png",
+      github: "https://github.com/yourusername/ai-chatbot",
+      demo: "https://demo-url.com",
     },
     {
       title: "AI Interviewer",
-      description: "A full-featured e-commerce platform with real-time inventory management, payment processing, and an admin dashboard for analytics and order management.",
-      technologies: ["Next.js", "Spring Boot", "PostgreSQL", "Stripe"],
-      image: "/project2.png", // Add your project image
+      description:
+        "Developed an AI-powered interviewer that extracts resume skills and roles.",
+      technologies: ["React.js", "Node.js", "LangChain", "Gemini API"],
+      image: "/Aiinterviewer.png",
       github: "https://github.com/yourusername/project2",
-      demo: "https://demo-url.com"
+      demo: "https://demo-url.com",
     },
-    // Add more projects as needed
+    {
+      title: "SignetFlow",
+      description:
+        "Built a secure digital document signing platform with JWT-based access.",
+      technologies: ["React", "Node.js", "PDF.js", "JWT", "Nodemailer"],
+      image: "./SignetFlow.png",
+      github: "https://github.com/JayThakor15/SignetFlow_Frontend",
+      demo: "https://signetflow.netlify.app/",
+    },
+    {
+      title: "RideNow",
+      description:
+        "Developed a mobile-first Uber clone with real-time fare calculation.",
+      technologies: ["React", "Node.js", "Google Maps API", "JWT"],
+      image: "./RIdeNow.png",
+      github: "https://github.com/JayThakor15/RideNow",
+    },
+    {
+      title: "GuessTheEmoji",
+      description:
+        "Interactive emoji guessing game with engaging UI and animations.",
+      technologies: ["React", "CSS3", "JavaScript", "Framer Motion"],
+      image: "./Guesstheemoji.png",
+      github: "https://github.com/JayThakor15/GuessTheEmoji",
+      demo: "https://guess-the-emojie.netlify.app/",
+    },
+    {
+      title: "Calculator",
+      description: "Built a calculator app with a clean and responsive UI.",
+      technologies: ["HTML", "CSS3", "JavaScript", "Framer Motion"],
+      image: "./Calculator.png",
+      github: "https://github.com/JayThakor15/Calculator",
+      demo: "https://calculatei-it.netlify.app/",
+    },
   ];
+
+  useEffect(() => {
+    const calculateConstraints = () => {
+      if (containerRef.current && trackRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const trackWidth = trackRef.current.scrollWidth;
+        const constraint = Math.min(0, containerWidth - trackWidth);
+        setDragConstraint(constraint);
+      }
+    };
+
+    calculateConstraints();
+    window.addEventListener("resize", calculateConstraints);
+    return () => window.removeEventListener("resize", calculateConstraints);
+  }, [projects]);
 
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
@@ -124,37 +146,38 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-text-light dark:text-text-dark mb-4">
+          <h2 className="text-4xl font-bold text-text-light dark:text-white mb-4">
             Featured Projects
           </h2>
-          <p className="text-lg text-text-light/70 dark:text-text-dark/70">
-            Some of my recent work that showcases my skills
+          <p className="text-lg text-text-light/70 dark:text-white/70">
+            Drag to explore my recent work that showcases my skills
           </p>
         </motion.div>
 
-        {/* Projects Timeline */}
-        <div className="relative">
-          {projects.map((project, index) => (
-            <div key={project.title}>
-              <ProjectCard
-                project={project}
-                isEven={index % 2 === 0}
-              />
-              {index === 0 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="flex justify-center my-8"
-                >
-                  <div className="bg-yellow-100/10 border border-yellow-400 text-yellow-300 px-6 py-4 rounded-lg text-center max-w-xl w-full shadow-lg">
-                    <span className="font-semibold">Note:</span> This portfolio website is currently <span className="font-bold text-yellow-400">under development</span>. Some features and sections may not be complete yet.
-                  </div>
-                </motion.div>
-              )}
-            </div>
-          ))}
-        </div>
+        {/* Projects Carousel */}
+        <motion.div
+          ref={containerRef}
+          className="overflow-hidden cursor-grab"
+          whileTap={{
+            cursor: "grabbing",
+          }}
+        >
+          <motion.div
+            ref={trackRef}
+            className="flex space-x-6 pb-6 px-4"
+            drag="x"
+            dragConstraints={{
+              right: 0,
+              left: dragConstraint - 32,
+            }}
+            dragElastic={0.15}
+          >
+            {projects.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
+          </motion.div>
+        </motion.div>
+
       </div>
 
       {/* Background Decorations */}

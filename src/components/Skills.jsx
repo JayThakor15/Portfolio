@@ -1,7 +1,16 @@
-import { motion } from 'framer-motion';
-import { SiReact, SiNodedotjs, SiSpring, SiMongodb, SiDocker, 
-         SiKubernetes, SiPython, SiTensorflow, SiAwsamplify } from 'react-icons/si';
-import { BsRobot } from 'react-icons/bs';
+import { motion } from "framer-motion";
+import {
+  SiReact,
+  SiNodedotjs,
+  SiSpring,
+  SiMongodb,
+  SiDocker,
+  SiKubernetes,
+  SiPython,
+  SiTensorflow,
+  SiAwsamplify,
+} from "react-icons/si";
+import { BsRobot } from "react-icons/bs";
 
 const SkillCard = ({ icon: Icon, name, color }) => (
   <motion.div
@@ -36,16 +45,94 @@ const Skills = () => {
         <img
           src="https://clipground.com/images/java-logo-png-6.png"
           alt="Java Logo"
-          className="w-28 h-24"
+          className="w-16 h-16"
         />
       ),
       name: "DSA",
       color: "",
     },
+    {
+      icon: () => (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+          alt="JavaScript Logo"
+          className="w-16 h-16"
+        />
+      ),
+      name: "JavaScript",
+      color: "",
+    },
+    {
+      icon: () => (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+          alt="HTML5 Logo"
+          className="w-16 h-16"
+        />
+      ),
+      name: "HTML5",
+      color: "",
+    },
+    {
+      icon: () => (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+          alt="CSS3 Logo"
+          className="w-16 h-16"
+        />
+      ),
+      name: "CSS3",
+      color: "",
+    },
+    {
+      icon: () => (
+        <img
+          src="tailwindcss.png"
+          alt="Tailwind CSS Logo"
+          className="w-16 h-16"
+        />
+      ),
+      name: "Tailwind CSS",
+      color: "",
+    },
+    //J query
+    {
+      icon: () => (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg"
+          alt="JQuery Logo"
+          className="w-16 h-16"
+        />
+      ),
+      name: "JQuery",
+      color: "",
+    },
+    {
+      icon: () => (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg"
+          alt="Redux Logo"
+          className="w-16 h-16"
+        />
+      ),
+      name: "Redux",
+      color: "",
+    },
+    {
+      icon: () => (
+        <img
+          src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+          alt="Docker Logo"
+          className="w-16 h-16"
+        />
+      ),
+      name: "Docker",
+      color: "",
+    },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-primary-light/10 to-transparent dark:from-primary-dark/10 dark:to-transparent">
+    <section className="py-20 w-full mx-auto bg-gradient-to-r relative border shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Title */}
         <motion.div
@@ -55,7 +142,7 @@ const Skills = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-text-light dark:text-text-dark mb-4">
+          <h2 className="text-4xl font-bold text-text-light dark:text-white mb-4">
             Technical Arsenal
           </h2>
           <p className="text-lg text-text-light/70 dark:text-text-dark/70">
@@ -114,5 +201,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
-
