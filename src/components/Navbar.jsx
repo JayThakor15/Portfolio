@@ -199,13 +199,9 @@ const Navbar = () => {
           </motion.a>
 
           {/* Desktop Navigation - Centered */}
-          <div className="hidden md:flex md:items-center md:justify-center flex-1">
-            <ExpandedTabs tabs={navItems} />
-          </div>
 
           {/* Right side buttons */}
           <div className="hidden md:flex items-center space-x-6">
-            <ThemeToggle />
             <motion.a
               href="https://drive.google.com/file/d/10ObisORNbJ-nGyFQQ9QZjLhlapoG6tWL/view?usp=sharing"
               whileHover={{ scale: 1.05 }}
@@ -218,7 +214,6 @@ const Navbar = () => {
 
           {/* Mobile Navigation Button */}
           <div className="flex items-center space-x-4 md:hidden">
-            <ThemeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-text-light dark:text-white"
@@ -243,16 +238,31 @@ const Navbar = () => {
             >
               <div className="flex flex-col space-y-4 pb-4">
                 {navItems.map((item) => (
-                  <a
+                  <button
                     key={item.href}
-                    href={item.href}
-                    className="flex items-center gap-3 px-4 py-2 text-lg text-text-light dark:text-white hover:text-accent-light dark:hover:text-accent-dark transition-colors"
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const target = document.querySelector(item.href);
+                      if (target) {
+                        // Close the mobile menu first
+                        setIsOpen(false);
+
+                        // Delay scroll until after menu closes
+                        setTimeout(() => {
+                          target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                          });
+                        }, 300); // delay to match the menu animation duration
+                      }
+                    }}
+                    className="flex items-center gap-3 px-4 py-2 text-lg text-text-light dark:text-white hover:text-accent-light dark:hover:text-accent-dark transition-colors text-left w-full"
                   >
                     <item.icon className="w-5 h-5" />
                     {item.label}
-                  </a>
+                  </button>
                 ))}
+
                 <motion.a
                   href="https://drive.google.com/file/d/13hcHhtso8EOFzLjgGAcX5r8ltj6z27CF/view?usp=sharing"
                   whileTap={{ scale: 0.95 }}
