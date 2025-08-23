@@ -73,8 +73,8 @@ const Projects = () => {
         "An AI-powered chatbot built using React, GenAI (Gemini API), and Tailwind CSS.",
       technologies: ["React", "GenAI", "Gemini API", "Tailwind CSS"],
       image: "/Ai-ChatBot.png",
-      github: "https://github.com/yourusername/ai-chatbot",
-      demo: "https://demo-url.com",
+      github: "https://github.com/JayThakor15/Ai-Chatbot",
+      demo: "https://lucia-aichatbot.netlify.app/",
     },
     {
       title: "AI Interviewer",
@@ -82,8 +82,8 @@ const Projects = () => {
         "Developed an AI-powered interviewer that extracts resume skills and roles.",
       technologies: ["React.js", "Node.js", "LangChain", "Gemini API"],
       image: "/Aiinterviewer.png",
-      github: "https://github.com/yourusername/project2",
-      demo: "https://demo-url.com",
+      github: "https://github.com/JayThakor15/Ai-interviewer-Frontend",
+      demo: "https://famous-gumdrop-d6b441.netlify.app/",
     },
     {
       title: "SignetFlow",
@@ -95,12 +95,30 @@ const Projects = () => {
       demo: "https://signetflow.netlify.app/",
     },
     {
+      title: "Giglyy",
+      description:
+        "A platform for freelancers to find jobs and showcase their skills.",
+      technologies: ["React", "Node.js", "MongoDB", "JWT", "Stripe", "Socket.io"],
+      image: "./Gigly.png",
+      github: "https://github.com/JayThakor15/Gigly_Frontend",
+      demo: "https://giglyy.netlify.app/",
+    },
+    {
       title: "RideNow",
       description:
         "Developed a mobile-first Uber clone with real-time fare calculation.",
       technologies: ["React", "Node.js", "Google Maps API", "JWT"],
       image: "./RIdeNow.png",
       github: "https://github.com/JayThakor15/RideNow",
+    },
+    {
+      title: "TalentThread",
+      description:
+        "Developed a LinkedIn clone for professionals.",
+      technologies: ["React", "Node.js", "MongoDB", "JWT","Cloudinary"],
+      image: "./TalentThread.png",
+      github: "https://github.com/JayThakor15/ThinkThreadFrontend",
+      demo: "https://thinkthread.netlify.app/",
     },
     {
       title: "GuessTheEmoji",
