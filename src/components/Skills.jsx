@@ -118,6 +118,54 @@ const Skills = () => {
       name: "Redux",
       color: "",
     },
+    // add github copilot with white color
+
+    {
+      icon: () => (
+        <img
+          src="./Github-Copilet.png"
+          alt="GitHub Copilot Logo"
+          className="w-16 h-16 object-contain"
+        />
+      ),
+      name: "GitHub Copilot",
+      color: "text-white",
+    },
+    // add cursor ai logo 
+    {
+      icon: () => (
+        <img
+          src="./Cursor.png"
+          alt="Cursor AI Logo"
+          className="w-16 h-16 object-contain"
+        />
+      ),
+      name: "Cursor AI",
+      color: "text-white",
+    },
+    {
+      icon: () => (
+        <img
+          src="./Tabnine.png"
+          alt="Tabnine Logo"
+          className="w-16 h-16 object-contain"
+        />
+      ),
+      name: "Tabnine",
+      color: "text-white",
+    },
+    // Postman
+    {
+      icon: () => (
+        <img
+          src="./Postman.png"
+          alt="Postman Logo"
+          className="w-16 h-16 object-contain"
+        />
+      ),
+      name: "Postman",
+      color: "text-white",
+    },
     {
       icon: () => (
         <img

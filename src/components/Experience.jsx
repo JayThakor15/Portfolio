@@ -66,7 +66,7 @@ const Experience = () => {
     {
       company: "Labmentix Pvt Limited",
       role: "Full Stack Web Developer Intern",
-      duration: "June 2025 – Present",
+      duration: "June 2025 – August 2025",
       location: "Remote",
       type: "Internship",
       highlights: [

@@ -77,6 +77,13 @@ const certificatesData = [
     issuer: "Coding Ninjas",
     date: "December 2025"
   },
+  {
+    id: 7,
+    imageUrl: "./Certificates/Soft-Skill.png",
+    title: "Soft Skills Development",
+    issuer: "Coding Ninjas X Hablar",
+    date: "December 2025"
+  },
 
 ];
 
