@@ -137,6 +137,21 @@ const Projects = () => {
       github: "https://github.com/JayThakor15/Calculator",
       demo: "https://calculatei-it.netlify.app/",
     },
+    {
+      title: "Resume-Flow",
+      description: "A streamlined resume building tool with a user-friendly interface with AI Suggestions.",
+      technologies: ["MERN", "Gemini", "PDF.js", "Framer Motion"],
+      image: "./Resume-FLow.png",
+      github: "https://github.com/JayThakor15/Resume_Flow",
+      demo: "https://resumefloww.netlify.app/",
+    },{
+      title: "NotesHive",
+      description: "A collaborative note-taking platform with real-time editing and AI Content Suggestions.",
+      technologies: ["MERN", "GoogleOAuth", "Gemini", "NodeMailer"],
+      image: "./Notes-Hive.png",
+      github: "https://github.com/JayThakor15/Notes_Taking_Frontend",
+      demo: "https://noteshivee.netlify.app/",
+    },
   ];
 
   useEffect(() => {
