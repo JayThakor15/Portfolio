@@ -98,7 +98,14 @@ const Projects = () => {
       title: "Giglyy",
       description:
         "A platform for freelancers to find jobs and showcase their skills.",
-      technologies: ["React", "Node.js", "MongoDB", "JWT", "Stripe", "Socket.io"],
+      technologies: [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "JWT",
+        "Stripe",
+        "Socket.io",
+      ],
       image: "./Gigly.png",
       github: "https://github.com/JayThakor15/Gigly_Frontend",
       demo: "https://giglyy.netlify.app/",
@@ -113,9 +120,8 @@ const Projects = () => {
     },
     {
       title: "TalentThread",
-      description:
-        "Developed a LinkedIn clone for professionals.",
-      technologies: ["React", "Node.js", "MongoDB", "JWT","Cloudinary"],
+      description: "Developed a LinkedIn clone for professionals.",
+      technologies: ["React", "Node.js", "MongoDB", "JWT", "Cloudinary"],
       image: "./TalentThread.png",
       github: "https://github.com/JayThakor15/ThinkThreadFrontend",
       demo: "https://thinkthread.netlify.app/",
@@ -139,18 +145,30 @@ const Projects = () => {
     },
     {
       title: "Resume-Flow",
-      description: "A streamlined resume building tool with a user-friendly interface with AI Suggestions.",
+      description:
+        "A streamlined resume building tool with a user-friendly interface with AI Suggestions.",
       technologies: ["MERN", "Gemini", "PDF.js", "Framer Motion"],
       image: "./Resume-FLow.png",
       github: "https://github.com/JayThakor15/Resume_Flow",
       demo: "https://resumefloww.netlify.app/",
-    },{
+    },
+    {
       title: "NotesHive",
-      description: "A collaborative note-taking platform with real-time editing and AI Content Suggestions.",
+      description:
+        "A collaborative note-taking platform with real-time editing and AI Content Suggestions.",
       technologies: ["MERN", "GoogleOAuth", "Gemini", "NodeMailer"],
       image: "./Notes-Hive.png",
       github: "https://github.com/JayThakor15/Notes_Taking_Frontend",
       demo: "https://noteshivee.netlify.app/",
+    },
+    {
+      title: "Froxy- Ecommerce Platform",
+      description:
+        "A full-featured e-commerce platform with Payment Gateway integration.",
+      technologies: ["MERN", "Stripe", "Invoice", "NodeMailer"],
+      image: "./Froxy.png",
+      github: "https://github.com/JayThakor15/Froxy---A-Ecommerce-Application",
+      demo: "https://froxy-ecommerce-site.netlify.app/",
     },
   ];
 
@@ -210,7 +228,6 @@ const Projects = () => {
             ))}
           </motion.div>
         </motion.div>
-
       </div>
 
       {/* Background Decorations */}
