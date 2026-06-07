@@ -64,6 +64,26 @@ const Experience = () => {
 
   const experiences = [
     {
+      company: "Sarjen Systems Pvt Ltd",
+      role: "Full Stack AI Developer Intern",
+      duration: "Dec 2025 – Present",
+      location: "Ahmedabad, Gujarat",
+      type: "Internship",
+      highlights: [
+        "Contributing as a Full Stack AI Developer on major enterprise-grade live projects",
+        "Developing and optimizing systems like Qedge, MDM (Master Data Management), RIMS, and sPDF",
+        "Collaborating on advanced software solutions for leading pharmaceutical clients including Intas and Lamda",
+        "Implementing full-stack features with integrated AI functionalities for streamlined business workflows",
+      ],
+      technologies: [
+        "React.js",
+        "Dotnet",
+        "AI Integration",
+        "Full Stack",
+        "Enterprise Systems",
+      ],
+    },
+    {
       company: "Labmentix Pvt Limited",
       role: "Full Stack Web Developer Intern",
       duration: "June 2025 – August 2025",

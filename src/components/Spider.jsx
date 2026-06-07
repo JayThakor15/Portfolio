@@ -2,41 +2,64 @@
 
 import React, { useState } from "react";
 
-const HashIcon = () => (
+const AntigravityIcon = () => (
   <svg
-    width="2.2em"
-    height="2.2em"
+    width="2.5em"
+    height="2.5em"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <linearGradient id="ag-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#60A5FA" />
+        <stop offset="100%" stopColor="#3B82F6" />
+      </linearGradient>
+      <filter id="ag-glow-path">
+        <feGaussianBlur stdDeviation="0.5" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
+    <path
+      d="M12 3L4 19H8L12 11L16 19H20L12 3Z"
+      fill="url(#ag-gradient)"
+      filter="url(#ag-glow-path)"
+    />
+    <path d="M12 15L10 19H14L12 15Z" fill="white" fillOpacity="0.8" />
+    <circle cx="12" cy="8" r="1.5" fill="white" fillOpacity="0.9" />
+  </svg>
+);
+
+const ClaudeIcon = () => (
+  <img
+    src="claude-ai-logo-d862.png"
+    alt="Claude AI"
+    className="w-[1.8em] h-[1.8em] object-contain"
+  />
+);
+
+const OpenAIIcon = () => (
+  <svg
+    width="1.8em"
+    height="1.8em"
     viewBox="0 0 24 24"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      d="M10 3L6 21"
-      stroke="#3B82F6"
+      d="M22.28 10.61c.42-.23.63-.7.54-1.16a5.7 5.7 0 00-6.19-4.52c-.41 0-.79.25-.97.62a5.7 5.7 0 00-2.45 4.54c0 .41.25.79.62.97a5.7 5.7 0 00-1.89 5.61c.07.41.42.7.83.7a5.7 5.7 0 004.91 2.37c.41 0 .76-.28.84-.69a5.7 5.7 0 005.16-3.8c.09-.43-.13-.88-.53-1.07l.1.43zm-7.6 1.41a3.17 3.17 0 11-2.24-5.41 3.17 3.17 0 012.24 5.41zm0 0l2.24-2.24"
+      stroke="#10A37F"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <path
-      d="M18 3L14 21"
-      stroke="#3B82F6"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M4 9H20"
-      stroke="#3B82F6"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M2 15H18"
-      stroke="#3B82F6"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      d="M12 12c-1.8 0-3.3-1.5-3.3-3.3S10.2 5.4 12 5.4s3.3 1.5 3.3 3.3S13.8 12 12 12z"
+      fill="#10A37F"
+      fillOpacity="0.2"
     />
   </svg>
 );
@@ -172,7 +195,7 @@ const TypeScriptIcon = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <rect width="24" height="24" fill="#3178C6" rx="2"/>
+    <rect width="24" height="24" fill="#3178C6" rx="2" />
     <path
       d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0H1.125zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"
       fill="#FFF"
@@ -188,7 +211,7 @@ const NextJSIcon = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <circle cx="12" cy="12" r="12" fill="#000"/>
+    <circle cx="12" cy="12" r="12" fill="#000" />
     <path
       d="M10.621 12.245L15.247 19.5a11.948 11.948 0 0 0 3.666-3.15L13.583 9.75h-1.962v2.495z"
       fill="#FFF"
@@ -244,15 +267,9 @@ const RenderIcon = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path
-      d="M12 0L2.5 7v10L12 24l9.5-7V7L12 0z"
-      fill="#46E3B7"
-    />
-    <path
-      d="M12 4.5L6.25 8.5v7L12 19.5l5.75-4v-7L12 4.5z"
-      fill="#FFF"
-    />
-    <circle cx="12" cy="12" r="2" fill="#46E3B7"/>
+    <path d="M12 0L2.5 7v10L12 24l9.5-7V7L12 0z" fill="#46E3B7" />
+    <path d="M12 4.5L6.25 8.5v7L12 19.5l5.75-4v-7L12 4.5z" fill="#FFF" />
+    <circle cx="12" cy="12" r="2" fill="#46E3B7" />
   </svg>
 );
 
@@ -292,35 +309,43 @@ const IconGrid = () => {
   const outerIcons = [
     {
       id: 1,
+      name: "Gemini",
       component: <SparkleIcon />,
     },
     {
       id: 2,
-      component: <ReactIcon />,
+      name: "Claude",
+      component: <ClaudeIcon />,
     },
     {
       id: 3,
-      component: <NodeIcon />,
+      name: "OpenAI",
+      component: <OpenAIIcon />,
     },
     {
       id: 4,
-      component: <JavaScriptIcon />,
+      name: "React",
+      component: <ReactIcon />,
     },
     {
       id: 5,
-      component: <TailwindIcon />,
+      name: "Node.js",
+      component: <NodeIcon />,
     },
     {
       id: 6,
-      component: <GitHubIcon />,
+      name: "TypeScript",
+      component: <TypeScriptIcon />,
     },
     {
       id: 7,
-      component: <RenderIcon />,
+      name: "Tailwind",
+      component: <TailwindIcon />,
     },
     {
       id: 8,
-      component: <MongoDBIcon />,
+      name: "GitHub",
+      component: <GitHubIcon />,
     },
   ];
   const radius = 160;
@@ -420,7 +445,7 @@ const IconGrid = () => {
             isHighlighted={true}
             animationDelay={0}
           >
-            <HashIcon />
+            <AntigravityIcon />
           </IconWrapper>
         </div>
 

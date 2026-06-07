@@ -8,7 +8,7 @@ import Experience from './components/Experience';
 import Certificates from './components/Certificates';
 import Contact from './components/Contact';
 import Training from './components/Training';
-// import Education from './components/Education';
+import Education from './components/Education';
 
 
 function App() {
@@ -23,8 +23,8 @@ function App() {
         </div>
         <Projects />
         <Experience />
+        <Education />
         <Training />
-        {/* <Education /> */}
         <Certificates />
         <Contact/>
       </div>

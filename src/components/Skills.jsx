@@ -9,6 +9,7 @@ import {
   SiPython,
   SiTensorflow,
   SiAwsamplify,
+  SiDotnet,
 } from "react-icons/si";
 import { BsRobot } from "react-icons/bs";
 
@@ -131,7 +132,7 @@ const Skills = () => {
       name: "GitHub Copilot",
       color: "text-white",
     },
-    // add cursor ai logo 
+    // add cursor ai logo
     {
       icon: () => (
         <img
@@ -166,6 +167,18 @@ const Skills = () => {
       name: "Postman",
       color: "text-white",
     },
+    {
+      icon: () => (
+        <img
+          src="claude-ai-logo-d862.png"
+          alt="Claude AI Logo"
+          className="w-16 h-16 object-contain"
+        />
+      ),
+      name: "Claude AI",
+      color: "text-white",
+    },
+    { icon: SiDotnet, name: ".NET", color: "text-purple-600" },
     {
       icon: () => (
         <img
